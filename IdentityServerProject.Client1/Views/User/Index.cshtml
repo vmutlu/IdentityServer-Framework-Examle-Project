@@ -1,0 +1,48 @@
+﻿@using Microsoft.AspNetCore.Authentication
+@{
+    ViewData["Title"] = "Index";
+}
+<a asp-action="LogOut" class="btn btn-warning">Çıkış Yap</a><br />
+<a asp-action="GetRefreshToken" class="btn btn-success">Reflesh Token Al</a><br />
+<h1>Üye iseniz bu ekranı görmeniz gerekmektedir.</h1> <small>Hşgeldiniz @User.Identity.Name </small>
+<br />
+<h3>Claim verilerim</h3>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Claim Type</th>
+            <th>Claim Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in User.Claims)
+        {
+            <tr>
+                <td>@item.Type</td>
+                <td>@item.Value</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<br />
+<h3>Authentication verilerim</h3>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Auth property key</th>
+            <th>Auth property value</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in (await Context.AuthenticateAsync()).Properties.Items) 
+        {
+            <tr>
+                <td>@item.Key</td>
+                <td>@item.Value</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

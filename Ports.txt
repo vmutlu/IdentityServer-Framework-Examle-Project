@@ -1,0 +1,6 @@
+https://localhost:5001 --> AuthServer -- 5001
+https://localhost:5003 --> Clien-1    -- 5006
+https://localhost:5005 --> Clien-2    -- 5011
+https://localhost:5007 --> API-1      -- 5016
+https://localhost:5009 --> API-2      -- 5021
+
